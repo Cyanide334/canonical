@@ -17,14 +17,16 @@ const Card = ({data}) => {
 
 
     return (
-        <div className="p-card">
-            <div className="p-card__content">
-                <p className="u-no-margin--bottom">CLOUD AND SERVER</p>
-                <hr className="u-sv1"/>
+        <div className="p-card l-site" style={{minHeight: 0}}>
+            <div className="p-card__content ">
+                <p>CLOUD AND SERVER</p>
+                <hr />
                 <img className="p-card__image" alt="" height="185" width="330" src={data.featured_media} />
                 <h4 style={{fontWeight: 400}}>
                     <a href={data.link}>{data.title.rendered}</a>
                 </h4>
+            </div>
+            <footer className="l-footer--sticky">
                 <p className="u-no-padding--bottom" >
                     <i>By {authors.map((author, index) => (
                         <span key={author.id}>
@@ -35,7 +37,7 @@ const Card = ({data}) => {
                 </p>
                 <hr />
                 <p className="p-text--small">Article</p>
-            </div>
+            </footer>
         </div>
     );
 }
