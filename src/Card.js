@@ -17,8 +17,7 @@ const Card = ({data}) => {
     const categories = data._embedded['wp:term'][0].map((cat) => {
         return {
             id: cat.id,
-            // name is plural in the API, convert to singular
-            name: cat.name.slice(0, -1),
+            name: cat.name.slice(0, -1),  // convert plural names to singular
             link: cat.link
         }
     });
@@ -46,19 +45,23 @@ const Card = ({data}) => {
     const title = topics.length > 0 ? topics[0] : tags[0];
     //figure out what the category should be
     const category = categories.length > 0 ? categories[0] : {name: 'Article', link: '#'};
-
-    console.log(data.featured_media)
     
     return (
         <div className="p-card col-4 col-medium-3 l-site" style={{minHeight: 0}}>
             <div className="p-card__content ">
-                <p><a href={title.link} className="p-link--soft">{title.name.toUpperCase()}</a></p>
+                <p>
+                    <a href={title.link} className="p-link--soft">{title.name.toUpperCase()}</a>
+                </p>
+                
                 <hr />
+                
                 <img className="p-card__image" alt="" height="185" width="330" src={data.featured_media} />
+                
                 <h4 style={{fontWeight: 400}}>
                     <a href={data.link}>{data.title.rendered}</a>
                 </h4>
-                <p className="" >
+                
+                <p className="u-sv1" >
                     <i>By {authors.map((author, index) => (
                         <span key={author.id}>
                             <a href={author.link}>{author.name}</a>
@@ -67,9 +70,13 @@ const Card = ({data}) => {
                     ))} on {date}</i>
                 </p>
             </div>
+            
             <footer className="l-footer--sticky">
                 <hr />
-                <p className="p-text--small u-no-margin" style={{padding: "0.4rem 0rem"}}><a href={category.link} className="p-link--soft">{category.name}</a></p>
+                
+                <p className="p-text--small u-no-margin" style={{padding: "0.4rem 0rem"}}>
+                    <a href={category.link} className="p-link--soft">{category.name}</a>
+                </p>
             </footer>
         </div>
     );

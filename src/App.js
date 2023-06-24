@@ -7,7 +7,9 @@ const App = () => {
   const url = 'https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json';
 
   useEffect(() => {
-    axios.get(url).then((res) => setData(res.data))
+    axios.get(url)
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
