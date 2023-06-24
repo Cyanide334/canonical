@@ -11,11 +11,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className="row " style={{marginTop: '10px'}}>
+    <div className="row u-equal-height" style={{marginTop: '10px'}}>
       {data.map((item) => (
-        <div key={item.id} className="col-4 col-medium-3 row">
-          <Card data={item} />
-        </div>
+        <Card key={item.id} data={item} />
       ))}
     </div>
   );

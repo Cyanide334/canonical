@@ -8,6 +8,7 @@
 
 hr {
   /* dotted hr line */
-  border-top: 1px dotted #8c8b8b;
+  border-top: 1px dotted #b4b4b4;
+  
   height: 0px;
 }
